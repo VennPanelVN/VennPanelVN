@@ -1,0 +1,137 @@
+@echo off
+color 0a
+chcp 65001
+cls
+start https://www.facebook.com/PhatDatECT/
+::===========================================================================
+fsutil dirty query %systemdrive%  >nul 2>&1 || (
+echo ================================================================
+echo                          ==== LỖI ====
+echo Bạn Cần Phải Chạy Quyền Quản Trị Viên Mới Chạy Được Tool
+echo Nhấp Chuột Phải Vào Tool Và Chọn 'Run as administrator'
+echo ================================================================
+echo.
+echo Nhấn phím bất kỳ để thoát
+pause >nul
+exit
+)
+::===========================================================================
+
+color 0b
+mode con cols=130 lines=40
+title OPTIMZE WINDOWS BY NHANZED CUTO
+
+:======================================================================================================================================================
+:Menu
+@Echo off
+color 0b
+chcp 65001
+cls
+mode con cols=130 lines=40
+for /f "tokens=2 delims==" %%a IN ('"wmic Path Win32_OperatingSystem Get Caption /format:LIST"')do (set NameOS=%%a) >nul 2>&1
+for /f "tokens=2 delims==" %%a IN ('"wmic Path Win32_OperatingSystem Get CSDVersion /format:LIST"')do (set SP=%%a) >nul 2>&1
+for /f "tokens=2 delims==" %%a in ('wmic path Win32_OperatingSystem get BuildNumber /value') do (set WinBuild=%%a) >nul 2>&1
+echo                                             %NameOS% %SP% %WinBuild%
+echo.                                        
+echo                      _______________________________________________________________________________
+echo.                    ^|                                                                             ^|
+Echo.                    ^|   [1] Dọn Rác ( Clean PC )                                                  ^|
+Echo.                    ^|                                                                             ^|
+Echo.                    ^|   [2] Thêm Regedit Tối Ưu ( Regedit Optimize )                              ^|  
+Echo.                    ^|                                                                             ^|
+Echo.                    ^|   [3] Tăng Tốc WiFi ( Boost Internet )                                      ^|
+echo.                    ^|                                                                             ^|
+echo.                    ^|   [4] Tối Ưu Service ( Optimze Services )                                   ^|
+Echo.                    ^|                                                                             ^|
+Echo.                    ^|   [5] Cài Ram Ảo ( Virtual Ram )                                            ^|
+echo.                    ^|                                                                             ^|
+echo.                    ^|   [6] Tối Ưu Ram  ( Optimize Ram )                                          ^|
+echo.                    ^|                                                                             ^| 
+echo.                    ^|   [7] Tắt Windows Defender ( Disable Denfender )                            ^| 
+echo.                    ^|                                                                             ^|
+Echo.                    ^|   [8] Tắt Những Thứ Không Cần Thiết ( Turn off unnecessary services )       ^|
+echo.                    ^|                                                                             ^|
+Echo.                    ^|   [9] Tắt Windows Update ( Disable Windows Update )                         ^|
+Echo.                    ^|                                                                             ^|
+echo.                    ^|   [10] Tắt Tường Lửa ( Disable FireWall )                                   ^|
+echo.                    ^|                                                                             ^|       
+Echo.                    ^|   [11] Thêm App Tối Ưu ( Optimal software )                                 ^|
+Echo.                    ^|                                                                             ^|
+Echo.                    ^|    [B] Bật Lại Các Dịch Vụ Đã Tắt (Enabled services you have disabled)      ^|
+echo.                    ^|                                                                             ^|
+echo.                    ^|                      [C] Created                                            ^|
+Echo.                    ^|              ____________________________________________                   ^|  
+Echo.                    ^|                             [E] Thoát ( Exit )                              ^|
+Echo.                    ^|_____________________________________________________________________________^|
+echo.
+SET /P sliext=Vui Lòng Chọn Dịch Vụ Bạn Muốn Sử Dụng :
+IF %sliext%==1 Goto Clean
+IF %sliext%==2 Goto regtoiuu
+IF %sliext%==3 Goto wifi
+IF %sliext%==4 Goto tatservice
+IF %sliext%==5 Goto ramao
+IF %sliext%==6 Goto toiuuram
+IF %sliext%==7 Goto tatde
+IF %sliext%==8 Goto tatkocanthiet
+IF %sliext%==9 Goto tatupdate
+IF %sliext%==10 Goto tattuonglua
+IF %sliext%==11 Goto apptoiuu
+IF %sliext%==b Goto batlai
+IF %sliext%==B Goto batlai
+IF %sliext%==e Goto Exit
+IF %sliext%==E Goto Exit
+IF %sliext%==c Goto Create
+IF %sliext%==C Goto Create
+
+:======================================================================================================================================================
+:Create
+@Echo off
+chcp 65001
+cls
+mode con cols=130 lines=40
+
+Pause>nul
+Goto Menu			   
+:======================================================================================================================================================
+:Clean
+Echo off
+color b
+clearing "Microsoft-Windows-BackgroundTaskInfrastructure/Operational"
+clearing "Microsoft-Windows-BackgroundTransfer-ContentPrefetcher/Operational"
+clearing "Microsoft-Windows-Backup"
+clearing "Microsoft-Windows-Base-Filtering-Engine-Connections/Operational"
+clearing "Microsoft-Windows-Base-Filtering-Engine-Resource-Flows/Operational"
+clearing "Microsoft-Windows-Battery/Diagnostic"
+clearing "Microsoft-Windows-Biometrics/Analytic"
+clearing "Microsoft-Windows-Biometrics/Operational"
+clearing "Microsoft-Windows-BitLocker-DrivePreparationTool/Admin"
+clearing "Microsoft-Windows-BitLocker-DrivePreparationTool/Operational"
+clearing "Microsoft-Windows-BitLocker-Driver-Performance/Operational"
+clearing "Microsoft-Windows-BitLocker/BitLocker Management"
+clearing "Microsoft-Windows-BitLocker/BitLocker Operational"
+clearing "Microsoft-Windows-BitLocker/Tracing"
+clearing "Microsoft-Windows-Bits-Client/Analytic"
+clearing "Microsoft-Windows-Bits-Client/Operational"
+clearing "Microsoft-Windows-Bluetooth-BthLEEnum/Operational"
+clearing "Microsoft-Windows-Bluetooth-BthLEPrepairing/Operational"
+clearing "Microsoft-Windows-Bluetooth-Bthmini/Operational"
+clearing "Microsoft-Windows-Bluetooth-MTPEnum/Operational"
+clearing "Microsoft-Windows-Bluetooth-Policy/Operational"
+clearing "Microsoft-Windows-BranchCache/Operational"
+clearing "Microsoft-Windows-BranchCacheClientEventProvider/Diagnostic"
+clearing "Microsoft-Windows-BranchCacheEventProvider/Diagnostic"
+clearing "Microsoft-Windows-BranchCacheMonitoring/Analytic"
+clearing "Microsoft-Windows-BranchCacheSMB/Analytic"
+clearing "Microsoft-Windows-BranchCacheSMB/Operational"
+clearing "Microsoft-Windows-CAPI2/Catalog Database Debug"
+clearing "Microsoft-Windows-CAPI2/Operational"
+clearing "Microsoft-Windows-CDROM/Operational"
+clearing "Microsoft-Windows-COM/Analytic"
+clearing "Microsoft-Windows-COM/ApartmentInitialize"
+clearing "Microsoft-Windows-COM/ApartmentUninitialize"
+clearing "Microsoft-Windows-COM/Call"
+clearing "Microsoft-Windows-COM/CreateInstance"
+clearing "Microsoft-Windows-COM/ExtensionCatalog"
+clearing "Microsoft-Windows-COM/FreeUnusedLibrary"
+clearing "Microsoft-Windows-COM/RundownInstrumentation"
+clearing "Microsoft-Windows-COMRuntime/Activations"
